@@ -1,14 +1,14 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace partsnet.Extensions
+namespace PartsNet.Extensions
 {
 	public static class ViewsExtensions
 	{
 		public static void RegisterPart(IMvcBuilder builder, Type partType)
 		{
-			builder.ConfigureApplicationPartManager(options =>
+			builder.ConfigureApplicationPartManager(manager =>
 			{
-				options.ApplicationParts.Add();
+				manager.AddAssemblyPart(partType);
 			});
 		}
 	}
